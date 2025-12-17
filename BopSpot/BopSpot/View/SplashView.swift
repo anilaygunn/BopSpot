@@ -12,18 +12,18 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             
-            Color.black
+            Color(uiColor: .systemBackground)
                 .edgesIgnoringSafeArea(.all)
             
             ZStack {
                 Circle()
-                    .stroke(Color.white.opacity(0.03), lineWidth: 2)
+                    .stroke(Color.primary.opacity(0.03), lineWidth: 2)
                     .frame(width: 400, height: 400)
                 Circle()
-                    .stroke(Color.white.opacity(0.03), lineWidth: 2)
+                    .stroke(Color.primary.opacity(0.03), lineWidth: 2)
                     .frame(width: 600, height: 600)
                 Circle()
-                    .stroke(Color.white.opacity(0.02), lineWidth: 50)
+                    .stroke(Color.primary.opacity(0.02), lineWidth: 50)
                     .frame(width: 800, height: 800)
                     .blur(radius: 50)
             }
@@ -36,16 +36,14 @@ struct SplashView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200)
                     .cornerRadius(35)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
                     
-                   
-                    .shadow(color: Color.white.opacity(0.6), radius: 45, x: 0, y: 0)
+                    .shadow(color: Color.primary.opacity(0.6), radius: 45, x: 0, y: 0)
                 
                 VStack(spacing: 15) {
                     Text("BOP SPOT")
                         .font(.system(size: 42, weight: .heavy, design: .default))
-                        .foregroundColor(.white)
-                    
+                        .foregroundColor(.primary)
                     
                     HStack(spacing: 12) {
                         Circle()
@@ -54,7 +52,7 @@ struct SplashView: View {
                         
                         Text("CALIBRATING LOCAL FREQUENCIES")
                             .font(.system(size: 14, weight: .medium, design: .monospaced))
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .textCase(.uppercase)
                             
                             .kerning(1.2)

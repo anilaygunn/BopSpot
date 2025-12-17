@@ -9,26 +9,20 @@ import Foundation
 import Observation
 import SwiftUI
 
-enum AuthStep{
-    case emailInput
-    case otpInput
-}
-
 @Observable
 class AuthViewModel {
     var email: String = ""
     var otpCode: String = ""
-    var currentStep: AuthStep = .emailInput
+    var navigationPath = NavigationPath()
     
     func continueWithEmail() {
-            
         guard !email.isEmpty else { return }
-            
-        withAnimation(.easeInOut(duration: 0.4)) {
-            currentStep = .otpInput
-        }
-            
+        navigationPath.append(AuthStep.otpInput)
         print("Kod gönderildi: \(email)")
     }
+}
 
+enum AuthStep: Hashable {
+    case emailInput
+    case otpInput
 }
